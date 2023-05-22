@@ -1,8 +1,10 @@
-/Backend/.env
-/Backend/node_modules
+/Projeto1EventosAcademicos/Backend/.env
+/Projeto1EventosAcademicos/Backend/node_modules
 
-/FrontendWeb/.env
+/Projeto1EventosAcademicos/FrontendWeb/.env
+/Projeto1EventosAcademicos/FrontendWeb/node_modules
 
-/FrontendMobile/.env
+/Projeto1EventosAcademicos/FrontentMobile/.env
+/Projeto1EventosAcademicos/FrontentMobile/node_modules
 
 .DS_Store
