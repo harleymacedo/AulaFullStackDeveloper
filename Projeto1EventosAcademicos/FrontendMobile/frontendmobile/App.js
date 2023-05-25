@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, Text, SafeAreaView, View, Image } from 'react-native'
-import CardEvento from './components/CardEvento'
+import DisciplinaCard from './components/DisciplinaCard'
 
 export default App = () => {
     return (
@@ -11,7 +11,7 @@ export default App = () => {
                 <Image source={require('./assets/LogoIFCECratoVertical.png')} style={styles.imagem1} />
             </View>
             <View>
-                <CardEvento ano='2023' />
+                <DisciplinaCard nome='Projeto de Sistemas Web 1' />
             </View>
             <View>
                 <Text style={styles.text2}>Desenvolvido por: Harley Macêdo</Text>
@@ -24,15 +24,17 @@ export default App = () => {
 const styles = StyleSheet.create({
     container1: {
         flex: 1,
-        backgroundColor: '#282c34',
+        flexDirection: 'column',
+        justifyContent: 'center',
         alignItems: 'center',
-        justifyContent: 'center'
+        backgroundColor: '#282c34'        
     },
     container2: {
         flex: 1,
-        backgroundColor: '#282c34',
+        flexDirection: 'column',
+        justifyContent: 'center',
         alignItems: 'center',
-        justifyContent: 'center'
+        backgroundColor: '#282c34'
     },
     text1: {
         color: '#fff',

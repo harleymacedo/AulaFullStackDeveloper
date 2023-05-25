@@ -1,9 +1,9 @@
 import { View, Text, StyleSheet } from 'react-native'
 
-export default CardEvento = (props) => {
+export default DisciplinaCard = (props) => {
     return (
         <View style={styles.container}>
-            <Text style={styles.text1}>Evento ano {props.ano}</Text>
+            <Text style={styles.text1}>Disciplina: {props.nome}</Text>
         </View>
     )
 }
