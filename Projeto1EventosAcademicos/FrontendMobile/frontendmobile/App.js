@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, Text, SafeAreaView, View, Image } from 'react-native'
-import DisciplinaCard from './components/DisciplinaCard'
+import MenuHome from './components/MenuHome'
 
 export default App = () => {
     return (
@@ -11,10 +11,10 @@ export default App = () => {
                 <Image source={require('./assets/LogoIFCECratoVertical.png')} style={styles.imagem1} />
             </View>
             <View>
-                <DisciplinaCard nome='Projeto de Sistemas Web 1' />
+                <MenuHome />
             </View>
             <View>
-                <Text style={styles.text2}>Desenvolvido por: Harley Macêdo</Text>
+                <Text style={styles.text2}>Desenvolvido por: Harley Macêdo - 2023</Text>
             </View>
             <StatusBar style="auto" />
         </SafeAreaView>
