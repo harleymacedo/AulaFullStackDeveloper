@@ -1,10 +1,20 @@
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { SafeAreaView, View, Text, Image, StyleSheet } from 'react-native'
 
 export default Mural = () => {
     return (
-        <View style={styles.container1} >
-            <Text style={styles.text1} >Mural</Text>
-        </View>
+        <SafeAreaView>
+            <View style={styles.container2}>
+                <Text style={styles.text1}>App do Curso</Text>
+                <Text style={styles.text2}>Sistemas de Informação</Text>
+                <Image source={require('../assets/LogoIFCECratoVertical.png')} style={styles.imagem1} />
+            </View>
+            <View>
+                <Text>Mural principal</Text>
+            </View>
+            <View>
+                <Text style={styles.text2}>Desenvolvido por: Harley Macêdo - 2023</Text>
+            </View>
+        </SafeAreaView>
     )
 }
 
@@ -12,10 +22,28 @@ const styles = StyleSheet.create({
     container1: {
         flex: 1,
         flexDirection: 'column',
-        justifyContent: 'space-between',
-        alignItems: 'center'
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#282c34'        
+    },
+    container2: {
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#282c34'
     },
     text1: {
-        fontSize: 18
+        color: '#fff',
+        fontSize: 26
+    },
+    text2: {
+        color: '#fff',
+        fontSize: 18,
+        marginTop: 20
+    },
+    imagem1: {
+        width: 50,
+        height: 100
     }
 })

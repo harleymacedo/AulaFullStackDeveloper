@@ -1,6 +1,6 @@
 import { View, Text, Button, Image, StyleSheet } from 'react-native'
 
-export default Disciplina = () => {
+export default Disciplinas = () => {
     return (
         <View style={styles.container1} >
             <Text style={styles.text1} >Disciplinas</Text>
