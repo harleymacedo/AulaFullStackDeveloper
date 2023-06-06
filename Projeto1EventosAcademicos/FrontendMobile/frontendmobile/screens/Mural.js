@@ -13,10 +13,6 @@ export default Mural = () => {
             <View>
                 <Text>Mural principal</Text>
             </View>
-
-            <View>
-                <Text style={styles.text3}>Desenvolvido por: Harley Macêdo - 2023</Text>
-            </View>
             
         </SafeAreaView>
     )
@@ -25,10 +21,10 @@ export default Mural = () => {
 const styles = StyleSheet.create({
     container1: {
         flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        backgroundColor: '#fff'        
+        flexDirection: 'column', alignItems: 'center',
+        justifyContent: 'flex-start',
+        
+        backgroundColor: '#888'        
     },
     container2: {
         flex: 1,
@@ -36,7 +32,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: 40,
-        backgroundColor: '#fff'
+        backgroundColor: '#222'
     },
     text1: {
         color: '#119922',

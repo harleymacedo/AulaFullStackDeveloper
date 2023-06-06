@@ -1,6 +1,6 @@
 import {View, Text, StyleSheet} from 'react-native'
 
-export default Professor = () => {
+export default Professores = () => {
     return (
         <View style={styles.container1}>
             <Text>
