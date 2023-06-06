@@ -1,26 +1,32 @@
-//import { StyleSheet, Text, SafeAreaView, View, Image } from 'react-native'
+import { Image } from 'react-native'
 import {NavigationContainer} from '@react-navigation/native'
-import {createNativeStackNavigator} from '@react-navigation/native-stack'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Mural from './screens/Mural'
 import Disciplinas from './screens/Disciplinas';
 
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 export default App = () => {
     return (
-        <NavigationContainer>
-            <Stack.Navigator>
-                <Stack.Screen
+        <NavigationContainer>            
+            <Tab.Navigator screenOptions={{ headerShown: false }} >
+                <Tab.Screen 
                     name="Mural"
                     component={Mural}
-                    options={{title: 'Welcome'}}
+                    options={{ 
+                        tabBarLabel: 'Professor', 
+                        tabBarIcon: () => (<Image source={require('./assets/icons8-professor-16.png')} />) 
+                    }} 
                 />
-                <Stack.Screen
+                <Tab.Screen 
                     name="Disciplinas"
-                    component={Disciplinas}
-                    options={{title: 'Welcome'}}
+                    component={Disciplinas} 
+                    options={{ 
+                        tabBarLabel: 'Disciplinas', 
+                        tabBarIcon: () => (<Image source={require('./assets/icons8-lista-16.png')} />) 
+                    }} 
                 />
-            </Stack.Navigator>
+            </Tab.Navigator>
         </NavigationContainer>
     )
 }
