@@ -18,7 +18,7 @@ export default App = () => {
                     component={Mural}
                     options={{ 
                         tabBarLabel: 'Mural', 
-                        tabBarIcon: () => (<Image source={require('./assets/icons8-professor-16.png')} />) 
+                        tabBarIcon: () => (<Image source={require('./assets/icons8-shouting-32.png')} />) 
                     }} 
                 />
 
@@ -27,16 +27,16 @@ export default App = () => {
                     component={Disciplinas} 
                     options={{ 
                         tabBarLabel: 'Disciplinas', 
-                        tabBarIcon: () => (<Image source={require('./assets/icons8-lista-16.png')} />) 
+                        tabBarIcon: () => (<Image source={require('./assets/icons8-lista-32.png')} />) 
                     }} 
                 />
 
                 <Tab.Screen 
                     name="Professores"
-                    component={Mural}
+                    component={Professores}
                     options={{ 
                         tabBarLabel: 'Professores', 
-                        tabBarIcon: () => (<Image source={require('./assets/icons8-professor-16.png')} />) 
+                        tabBarIcon: () => (<Image source={require('./assets/icons8-professor-32.png')} />) 
                     }} 
                 />
 
@@ -45,7 +45,7 @@ export default App = () => {
                     component={Eventos}
                     options={{ 
                         tabBarLabel: 'Eventos', 
-                        tabBarIcon: () => (<Image source={require('./assets/icons8-professor-16.png')} />) 
+                        tabBarIcon: () => (<Image source={require('./assets/icons8-evento-32.png')} />) 
                     }} 
                 />
 
