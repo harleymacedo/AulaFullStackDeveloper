@@ -5,6 +5,7 @@ import Mural from './screens/Mural'
 import Disciplinas from './screens/Disciplinas'
 import Professores from './screens/Professores'
 import Eventos from './screens/Eventos'
+import Sobre from './screens/Sobre'
 
 const Tab = createBottomTabNavigator();
 
@@ -46,6 +47,15 @@ export default App = () => {
                     options={{ 
                         tabBarLabel: 'Eventos', 
                         tabBarIcon: () => (<Image source={require('./assets/icons8-evento-32.png')} />) 
+                    }} 
+                />
+
+                <Tab.Screen 
+                    name="Sobre"
+                    component={Sobre}
+                    options={{ 
+                        tabBarLabel: 'Sobre', 
+                        tabBarIcon: () => (<Image source={require('./assets/icons8-sobre-32.png')} />) 
                     }} 
                 />
 
