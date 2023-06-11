@@ -1,38 +1,44 @@
 //Import de roteador e model
-const ProfessorRouter = require('express').Router()
-const ProfessorSchema = require('../models/Professor')
+const professorRouter = require('express').Router()
+const mongoose = require('mongoose')
+const professor = require('../models/professor')
 
 //Rota para obter todas os professores
-ProfessorRouter.get('/professor/todos', (req, res) => {
+professorRouter.get('/professor/todos', async (req, res) => {
     try {
-        const professores = ProfessorSchema.find({})
-        res.json({professores: professores})
+        const conectado = await mongoose.connect(process.env.DB_STR_CON)
+        const professoresBuscados = await professor.find()
+        res.json({professores: professoresBuscados})
     } catch (error) {
-        res.json({mensagem: 'Erro durante a consulta'})
+        res.json({mensagem: 'Erro durante a consulta', erro: true, erro: error.message})
     }
 })
 
 //Rota para obter professor por ID
-ProfessorRouter.get('/professor/:id', (req, res) => {
+professorRouter.get('/professor/:id', async (req, res) => {
     try {
-        const professor = ProfessorSchema.findById(req.body.id)
-        res.json({professor: professor})
+        await mongoose.connect(process.env.DB_STR_CON)
+        const professorBuscado = await professor.findById(req.body.id)
+        res.json({professor: professorBuscado})
     } catch (error) {
         res.json({mensagem: 'Erro durante a consulta'})
     }
 })
 
 //Rota para inserir novo professor
-ProfessorRouter.post('/atividade', (req, res) => {
+professorRouter.post('/professor', async (req, res) => {
     try {
-        res.json({mensagem: 'Procedimento realizado com sucesso'});
+        await mongoose.connect(process.env.DB_STR_CON)
+        const professorNovo = req.body
+        await professor.create(professorNovo)
+        res.json({mensagem: 'Procedimento realizado com sucesso'})
     } catch (error) {
-        res.json({mensagem: 'Erro durante a consulta de atividades'});
+        res.json({mensagem: 'Erro durante a consulta'})
     }
 });
 
 //Rota para atualizar atividade
-ProfessorRouter.put('/atividade/:id', (req, res) => {
+professorRouter.put('/atividade/:id', (req, res) => {
     try {
         res.json({mensagem: 'Procedimento realizado com sucesso'});
     } catch (error) {
@@ -41,7 +47,7 @@ ProfessorRouter.put('/atividade/:id', (req, res) => {
 });
 
 //Rota para exluir atividade
-ProfessorRouter.delete('/atividade/:id', (req, res) => {
+professorRouter.delete('/atividade/:id', (req, res) => {
     try {
         res.json({mensagem: 'Procedimento realizado com sucesso'});
     } catch (error) {
@@ -50,4 +56,4 @@ ProfessorRouter.delete('/atividade/:id', (req, res) => {
 });
 
 //Exportar módulo
-module.exports = ProfessorRouter;
+module.exports = professorRouter;
