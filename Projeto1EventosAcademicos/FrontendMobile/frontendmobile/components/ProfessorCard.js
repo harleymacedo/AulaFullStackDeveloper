@@ -4,15 +4,20 @@ export default ProfessorCard = (props) => {
     return (
         <View style={styles.container}>
             <Text style={styles.text1}>Professor: {props.nome}</Text>
+            <Text style={styles.text1}>Email: {props.email} </Text>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#893939'
+        backgroundColor: '#d9e6f2',
+        border: '#336699',
+        width: 250,
+        height: 100,
+        marginTop: 10
     },
     text1: {
-        fontSize: 16
+        fontSize: 12
     }
 })

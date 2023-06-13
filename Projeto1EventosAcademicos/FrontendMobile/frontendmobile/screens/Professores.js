@@ -1,6 +1,7 @@
 import {SafeAreaView, View, Text, Table, StyleSheet, Alert, TextInput, TouchableOpacity} from 'react-native'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import ProfessorCard from '../components/ProfessorCard'
 
 export default Professores = () => {
 
@@ -10,7 +11,7 @@ export default Professores = () => {
     useEffect( () => {
         const fetchDadosProfessores = async () => {
             try {
-                const professoresBuscados = await axios.get('http://localhost:3000/professor/todo')
+                const professoresBuscados = await axios.get('http://localhost:3000/professor/todos')
                 setProfessores(professoresBuscados.data.professores)
             } catch (error) {
                 Alert.alert('Aviso', 'Erro durante a consulta', [
@@ -37,7 +38,8 @@ export default Professores = () => {
             
             { professores?.map( (professorAtual) => {
                 return(
-                    <Text key={professorAtual._id}>{professorAtual.nome}</Text>
+                    //<Text key={professorAtual._id}>{professorAtual.nome}</Text>
+                    <ProfessorCard key={professorAtual._id} nome={professorAtual.nome} email={professorAtual.email}/>
                 )} 
             ) }
         </SafeAreaView>
