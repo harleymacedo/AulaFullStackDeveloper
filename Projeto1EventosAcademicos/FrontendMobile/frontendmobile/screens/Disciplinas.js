@@ -1,15 +1,29 @@
 import {SafeAreaView, FlatList, View, Text, Table, StyleSheet} from 'react-native'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
+import DisciplinaCard from '../components/DisciplinaCard'
+import axios from 'axios'
 
 export default Disciplinas = () => {
 
-    const [disciplinas, setDisciplinas] = useState([
-        {key: 'Disciplina1', ch: 80},
-        {key: 'Disciplina2', ch: 80},
-        {key: 'Disciplina3', ch: 80},
-        {key: 'Disciplina4', ch: 80},
-        {key: 'Disciplina5', ch: 80}
-    ])
+    const [disciplinas, setDisciplinas] = useState([])
+
+    useEffect( () => {
+        const carregarDisciplinas = async () => {
+            try {
+                const disciplinasBuscadas = await axios.get('http://localhost:3000/disciplinas/todas')     
+                setDisciplinas(disciplinasBuscadas.data.disciplinas)           
+            } catch (error) {
+                Alert.alert('Aviso', 'Erro durante a consulta', [
+                    {
+                      text: 'Cancel',
+                      onPress: () => console.log('Cancel Pressed'),
+                      style: 'cancel',
+                    },
+                    {text: 'OK', onPress: () => console.log('OK Pressed')},
+                ]);
+            }
+        }
+    }, [] )
 
     return (
         <SafeAreaView style={styles.container1}>

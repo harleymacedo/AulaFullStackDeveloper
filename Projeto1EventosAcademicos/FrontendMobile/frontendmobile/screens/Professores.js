@@ -21,7 +21,7 @@ export default Professores = () => {
                       style: 'cancel',
                     },
                     {text: 'OK', onPress: () => console.log('OK Pressed')},
-                  ]);
+                ]);
             }
         }
         fetchDadosProfessores()

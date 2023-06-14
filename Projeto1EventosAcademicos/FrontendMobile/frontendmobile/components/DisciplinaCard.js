@@ -4,17 +4,20 @@ export default DisciplinaCard = (props) => {
     return (
         <View style={styles.container}>
             <Text style={styles.text1}>Disciplina: {props.nome}</Text>
+            <Text style={styles.text1}>Carga Horária: {props.ch} </Text>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        border: 1,
-        backgroundColor: '#779898'
+        backgroundColor: '#d9e6f2',
+        border: '#336699',
+        width: 250,
+        height: 100,
+        marginTop: 10
     },
     text1: {
-        color: '#229010',
-        fontSize: 18
+        fontSize: 12
     }
 })
