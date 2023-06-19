@@ -1,6 +1,7 @@
 import { Image } from 'react-native'
-import {NavigationContainer} from '@react-navigation/native'
+import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+
 import Mural from './screens/Mural'
 import Disciplinas from './screens/Disciplinas'
 import Professores from './screens/Professores'

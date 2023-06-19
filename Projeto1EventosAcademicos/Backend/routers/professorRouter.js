@@ -18,7 +18,18 @@ professorRouter.get('/professor/todos', async (req, res) => {
 professorRouter.get('/professor/:id', async (req, res) => {
     try {
         await mongoose.connect(process.env.DB_STR_CON)
-        const professorBuscado = await professor.findById(req.body.id)
+        const professorBuscado = await professor.findById(req.params.id)
+        res.json({professor: professorBuscado})
+    } catch (error) {
+        res.json({mensagem: 'Erro durante a consulta'})
+    }
+})
+
+//Rota para obter professor por Nome
+professorRouter.get('/professor/nome/:nome', async (req, res) => {
+    try {
+        await mongoose.connect(process.env.DB_STR_CON)
+        const professorBuscado = await professor.find({"nome": req.params.nome})
         res.json({professor: professorBuscado})
     } catch (error) {
         res.json({mensagem: 'Erro durante a consulta'})

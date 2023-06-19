@@ -26,14 +26,35 @@ export default Professores = () => {
         }
         fetchDadosProfessores()
     }, [])
+
+    const atualizarCampoTexto = (text) => {
+        setTextoBusca(text)
+    }
+
+    const buscarPorNome = async () => {
+        try {
+            const url = `http://localhost:3000/professor/nome/${textoBusca}`
+            const professoresBuscados = await axios.get(url)
+            setProfessores(professoresBuscados.data.professores)
+        } catch (error) {
+            Alert.alert('Aviso', 'Erro durante a consulta', [
+                {
+                  text: 'Cancel',
+                  onPress: () => console.log('Cancel Pressed'),
+                  style: 'cancel',
+                },
+                {text: 'OK', onPress: () => console.log('OK Pressed')},
+            ]);
+        }
+    }
  
     return (
         <SafeAreaView style={styles.container1}>
             <Text style={styles.text1} >Tela de professores</Text>
             <Text style={styles.text2} >Lista de professores</Text>
             <View style={styles.barraBusca}>
-                <TextInput style={styles.input1}>Teste</TextInput>
-                <TouchableOpacity style={styles.button1}><Text>Buscar</Text></TouchableOpacity>
+                <TextInput style={styles.input1} onChangeText={atualizarCampoTexto}></TextInput>
+                <TouchableOpacity style={styles.button1} onPress={buscarPorNome}><Text>Buscar</Text></TouchableOpacity>
             </View>
             
             { professores?.map( (professorAtual) => {
