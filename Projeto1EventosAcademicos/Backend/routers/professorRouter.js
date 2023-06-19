@@ -28,8 +28,11 @@ professorRouter.get('/professor/:id', async (req, res) => {
 //Rota para obter professor por Nome
 professorRouter.get('/professor/nome/:nome', async (req, res) => {
     try {
+        console.log('Vai consultar por nome')
         await mongoose.connect(process.env.DB_STR_CON)
-        const professorBuscado = await professor.find({"nome": req.params.nome})
+        const nome = req.params.nome
+        console.log(nome)
+        const professorBuscado = await professor.find({nome: {$regex: /nome/} })
         res.json({professor: professorBuscado})
     } catch (error) {
         res.json({mensagem: 'Erro durante a consulta'})
