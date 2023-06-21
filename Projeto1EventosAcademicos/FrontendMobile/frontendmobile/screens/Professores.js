@@ -49,53 +49,73 @@ export default Professores = () => {
     }
  
     return (
-        <SafeAreaView style={styles.container1}>
-            <Text style={styles.text1} >Tela de professores</Text>
-            <Text style={styles.text2} >Lista de professores</Text>
-            <View style={styles.barraBusca}>
+        <SafeAreaView style={styles.containerPrincipal}>
+
+            <View style={styles.containerCabecalho}>
+                <Text style={styles.text1} >Tela de professores</Text>
+                <Text style={styles.text2} >Lista de professores</Text>
+            </View>
+
+            <View style={styles.containerBarraBusca}>
                 <TextInput style={styles.input1} onChangeText={atualizarCampoTexto}></TextInput>
                 <TouchableOpacity style={styles.button1} onPress={buscarPorNome}><Text>Buscar</Text></TouchableOpacity>
             </View>
             
-            { professores?.map( (professorAtual) => {
-                return(
-                    //<Text key={professorAtual._id}>{professorAtual.nome}</Text>
-                    <ProfessorCard key={professorAtual._id} nome={professorAtual.nome} email={professorAtual.email}/>
-                )} 
-            ) }
+            <View style={styles.containerResultado}>
+                { professores ? 
+                    professores.map( (professorAtual) => {
+                        return(                    
+                            <ProfessorCard key={professorAtual._id} nome={professorAtual.nome} email={professorAtual.email}/>
+                        )}
+                    ) : (
+                        <Text>Nenhum registro foi encontrado</Text>
+                    )
+                }
+            </View>
+
         </SafeAreaView>
     )
 }
 
 const styles = StyleSheet.create({
-    container1: {
+    containerPrincipal: {
         flex: 1,
         flexDirection: 'column',
-        justifyContent: 'flex-start',
         alignItems: 'center'
+    },
+    containerBarraBusca: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        marginTop: 20,
+        height: 20
+    },
+    containerResultado: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderWidth: 1,
+        borderColor: '#ff8844',
+        marginTop: 40,
+        height: 400
     },
     text1: {
         color: '#119922',
         fontFamily: 'Verdana',
         marginTop: 20,
-        fontSize: 26
+        fontSize: 26,
+        textAlign: 'center'
     },
     text2: {
         color: '#119922',
         fontFamily: 'Verdana',
         marginTop: 40,
-        fontSize: 20
-    },
-    barraBusca: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginTop: 20
+        fontSize: 20,
+        textAlign: 'center'
     },
     input1: {
         backgroundColor: '#99ccff',
         width: 200,
-        height: 30,
+        height: 30
     },
     button1: {
         backgroundColor: '#119922',
