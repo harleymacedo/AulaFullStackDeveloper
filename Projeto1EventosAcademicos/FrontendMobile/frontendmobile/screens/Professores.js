@@ -35,7 +35,8 @@ export default Professores = () => {
         try {
             const url = `http://localhost:3000/professor/nome/${textoBusca}`
             const professoresBuscados = await axios.get(url)
-            setProfessores(professoresBuscados.data.professores)
+            console.log(url, professoresBuscados.data.professor)
+            setProfessores(professoresBuscados.data.professor)
         } catch (error) {
             Alert.alert('Aviso', 'Erro durante a consulta', [
                 {
@@ -87,7 +88,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         marginTop: 20,
-        height: 20
+        height: 20,
+        width: 300
     },
     containerResultado: {
         flexDirection: 'column',
@@ -96,7 +98,8 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#ff8844',
         marginTop: 40,
-        height: 400
+        height: 400,
+        width: 300
     },
     text1: {
         color: '#119922',
