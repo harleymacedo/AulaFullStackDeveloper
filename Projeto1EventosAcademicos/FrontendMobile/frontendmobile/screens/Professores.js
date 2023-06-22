@@ -1,4 +1,4 @@
-import {SafeAreaView, View, Text, Table, StyleSheet, Alert, TextInput, TouchableOpacity} from 'react-native'
+import {SafeAreaView, View, Text, StyleSheet, Alert, TextInput, TouchableOpacity} from 'react-native'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import ProfessorCard from '../components/ProfessorCard'

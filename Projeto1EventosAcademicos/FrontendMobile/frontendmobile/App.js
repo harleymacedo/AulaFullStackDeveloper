@@ -2,7 +2,6 @@ import { Image } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
-import Mural from './screens/Mural'
 import Disciplinas from './screens/Disciplinas'
 import Professores from './screens/Professores'
 import Eventos from './screens/Eventos'
@@ -14,15 +13,6 @@ export default App = () => {
     return (
         <NavigationContainer>            
             <Tab.Navigator screenOptions={{ headerShown: false }} >
-
-                <Tab.Screen 
-                    name="Mural"
-                    component={Mural}
-                    options={{ 
-                        tabBarLabel: 'Mural', 
-                        tabBarIcon: () => (<Image source={require('./assets/icons8-shouting-32.png')} />) 
-                    }} 
-                />
 
                 <Tab.Screen 
                     name="Disciplinas"
