@@ -1,4 +1,4 @@
-import {SafeAreaView, View, Text, TextInput, StyleSheet, TouchableOpacity} from 'react-native'
+import {SafeAreaView, View, Text, TextInput, StyleSheet, TouchableOpacity, Alert} from 'react-native'
 import {useState, useEffect} from 'react'
 import DisciplinaCard from '../components/DisciplinaCard'
 import axios from 'axios'
@@ -14,13 +14,16 @@ export default Disciplinas = () => {
                 const disciplinasBuscadas = await axios.get('http://localhost:3000/disciplinas/todas')     
                 setDisciplinas(disciplinasBuscadas.data.disciplinas)           
             } catch (error) {
+                console.log(error.message)
                 Alert.alert('Aviso', 'Erro durante a consulta', [
                     {
-                      text: 'Cancel',
-                      onPress: () => console.log('Cancel Pressed'),
-                      style: 'cancel',
+                        text: 'Cancel',                      
+                        style: 'cancel',
                     },
-                    {text: 'OK', onPress: () => console.log('OK Pressed')},
+                    {
+                        text: 'OK',
+                        style: 'ok'
+                    },
                 ]);
             }
         }
