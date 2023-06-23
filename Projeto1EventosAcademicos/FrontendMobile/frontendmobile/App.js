@@ -1,13 +1,39 @@
 import { Image } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 import Disciplinas from './screens/Disciplinas'
 import Professores from './screens/Professores'
 import Eventos from './screens/Eventos'
 import Sobre from './screens/Sobre'
+import ProfessorDetalhe from './screens/ProfessorDetalhe'
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator()
+const Stack = createNativeStackNavigator()
+
+function StackNavigator () {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name="ProfessorDetalhe" component={ProfessorDetalhe} 
+            options={{
+                title: "Professor Detalhe",
+                // headerStyle: {
+                // backgroundColor: '#124050',
+                // },
+                headerTintColor: "#fff"
+            }}/>
+            <Stack.Screen name="Projeto" component={Projeto} 
+            options={{
+                title: "Projeto",
+                headerStyle: {
+                backgroundColor: '#124050',
+                },
+                headerTintColor: "#fff"
+            }}/>
+        </Stack.Navigator>
+    )
+}
 
 export default App = () => {
     return (
